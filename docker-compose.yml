@@ -1,0 +1,36 @@
+services:
+  platform-core-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: platform_core
+    ports:
+      - "5433:5432"
+    volumes:
+      - photo_platform_core_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d platform_core"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  photo-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: photo_delivery
+    ports:
+      - "5434:5432"
+    volumes:
+      - photo_product_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d photo_delivery"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  photo_platform_core_data:
+  photo_product_data:

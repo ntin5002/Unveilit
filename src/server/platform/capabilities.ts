@@ -1,0 +1,108 @@
+/** Canonical capability catalog from docs/SHARED-PLATFORM-ARCHITECTURE.md. */
+export const PLATFORM_CAPABILITIES = [
+  "platform.users.view",
+  "platform.users.manage",
+  "platform.organizations.view",
+  "platform.organizations.manage",
+  "platform.admins.view",
+  "platform.admins.manage",
+  "platform.roles.manage",
+  "platform.capabilities.manage",
+  "platform.billing.view",
+  "platform.billing.manage",
+  "platform.subscriptions.manage",
+  "platform.contacts.view",
+  "platform.contacts.manage",
+  "platform.products.manage",
+  "platform.audit.view",
+] as const;
+
+export const SIGNATIVE_CAPABILITIES = [
+  "signative.documents.view",
+  "signative.documents.create",
+  "signative.documents.edit",
+  "signative.documents.send",
+  "signative.documents.delete",
+  "signative.documents.archive",
+  "signative.templates.view",
+  "signative.templates.create",
+  "signative.templates.edit",
+  "signative.templates.delete",
+  "signative.recipients.manage",
+  "signative.signing.manage",
+  "signative.certificates.view",
+  "signative.certificates.download",
+  "signative.audit.view",
+  "signative.settings.manage",
+] as const;
+
+export const PHOTO_CAPABILITIES = [
+  "photos.galleries.view",
+  "photos.galleries.create",
+  "photos.galleries.edit",
+  "photos.galleries.delete",
+  "photos.galleries.publish",
+  "photos.photos.view",
+  "photos.photos.upload",
+  "photos.photos.delete",
+  "photos.photos.manage",
+  "photos.watermarks.manage",
+  "photos.proofing.manage",
+  "photos.selections.view",
+  "photos.selections.manage",
+  "photos.payments.view",
+  "photos.payments.manage",
+  "photos.refunds.manage",
+  "photos.deliveries.view",
+  "photos.deliveries.manage",
+  "photos.downloads.manage",
+  "photos.storage.view",
+  "photos.storage.manage",
+  "photos.protection.manage",
+  "photos.audit.view",
+  "photos.settings.manage",
+] as const;
+
+export const ALL_CAPABILITIES = [
+  ...PLATFORM_CAPABILITIES,
+  ...SIGNATIVE_CAPABILITIES,
+  ...PHOTO_CAPABILITIES,
+] as const;
+
+export type CapabilityKey = (typeof ALL_CAPABILITIES)[number];
+
+export const PlatformCapabilities = {
+  auditView: "platform.audit.view",
+  productsManage: "platform.products.manage",
+  contactsView: "platform.contacts.view",
+  contactsManage: "platform.contacts.manage",
+  organizationsView: "platform.organizations.view",
+  organizationsManage: "platform.organizations.manage",
+} as const;
+
+export const PhotoCapabilities = {
+  galleriesView: "photos.galleries.view",
+  galleriesCreate: "photos.galleries.create",
+  galleriesEdit: "photos.galleries.edit",
+  galleriesDelete: "photos.galleries.delete",
+  galleriesPublish: "photos.galleries.publish",
+  photosView: "photos.photos.view",
+  photosUpload: "photos.photos.upload",
+  photosDelete: "photos.photos.delete",
+  photosManage: "photos.photos.manage",
+  watermarksManage: "photos.watermarks.manage",
+  proofingManage: "photos.proofing.manage",
+  selectionsView: "photos.selections.view",
+  selectionsManage: "photos.selections.manage",
+  paymentsView: "photos.payments.view",
+  paymentsManage: "photos.payments.manage",
+  refundsManage: "photos.refunds.manage",
+  deliveriesView: "photos.deliveries.view",
+  deliveriesManage: "photos.deliveries.manage",
+  downloadsManage: "photos.downloads.manage",
+  storageView: "photos.storage.view",
+  storageManage: "photos.storage.manage",
+  protectionManage: "photos.protection.manage",
+  auditView: "photos.audit.view",
+  settingsManage: "photos.settings.manage",
+} as const;
